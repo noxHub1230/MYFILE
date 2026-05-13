@@ -1,0 +1,58 @@
+/* ── 語言切換 Dropdown ── */
+.langDropdown {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.langDropdownToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #affcff;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px aqua;
+  padding: 2px 6px;
+  transition:
+    text-shadow 0.25s linear,
+    transform 0.25s linear;
+}
+.langDropdownToggle:hover {
+  text-shadow:
+    0 0 2px #affcff,
+    5px 5px 10px #2f25fa,
+    -5px -5px 10px #2f25fa;
+  transform: translateY(-3px);
+}
+
+#navlang.langDropdownMenu {
+  background: rgba(29, 21, 67, 0.97);
+  border: 1px solid rgba(175, 252, 255, 0.2);
+  padding: 6px 0;
+  min-width: 130px;
+}
+.langDropdownMenu li {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  gap: 8px;
+}
+
+.langRadio {
+  accent-color: #affcff;
+  cursor: pointer;
+}
+.langRadioLabel {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 0.95em;
+  color: #affcff;
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.langRadioLabel--active {
+  opacity: 1;
+  text-shadow: 0 0 5px aqua;
+}
+.langRadioLabel:hover {
+  opacity: 1;
+}

@@ -2,19 +2,42 @@
  * nav.js
  * 共用導覽列模組
  *
- * 根據當前頁面自動判斷：
- *   - index.html  → home  模式（無 navTitle、排除 home 自身）
- *   - 其他頁面   → inner 模式（有 navTitle、排除當前頁）
- *
- * 使用方式：
- *   renderNav(nav, "works");   // 傳入 nav 資料與當前頁 key
+ * RWD 漢堡選單說明：
+ *   - 行動端（≤768px）才顯示漢堡按鈕，桌面端完全隱藏（display:none!important）
+ *   - inner 頁：漢堡按鈕 append 至 .navigator 最右端
+ *   - home  頁：漢堡按鈕 append 至 .videoContainer（fixed 右上角）
+ *   - 漢堡圖示由 .burger-bar + ::before + ::after 組成
+ *   - 開啟：::before 透明、bar rotate(45deg)、::after rotate(-90deg) → 叉叉
+ *   - 再點 → 復原
  */
 
 /**
+ * 建立漢堡按鈕並綁定開關邏輯
+ * @param {string} navAreaId - 對應的 navArea 容器 id
+ * @returns {HTMLButtonElement}
+ */
+function createBurgerBtn(navAreaId) {
+  const btn = document.createElement("button");
+  btn.className = "burger-btn";
+  btn.setAttribute("aria-label", "Toggle navigation");
+  btn.setAttribute("aria-expanded", "false");
+
+  const bar = document.createElement("div");
+  bar.className = "burger-bar";
+  btn.appendChild(bar);
+
+  btn.addEventListener("click", () => {
+    const isOpen = btn.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", String(isOpen));
+    const navArea = document.getElementById(navAreaId);
+    if (navArea) navArea.classList.toggle("nav-open", isOpen);
+  });
+
+  return btn;
+}
+
+/**
  * 渲染導覽列連結（排除當前頁）
- * @param {Object}   nav         - data_*.js 中的 nav 物件
- * @param {string}   currentKey  - 當前頁的 key（"home" | "intro" | "works" | "contact"）
- * @param {string}   containerId - 要填入連結的容器 id
  */
 function renderNavLinks(nav, currentKey, containerId) {
   const container = document.getElementById(containerId);
@@ -22,11 +45,20 @@ function renderNavLinks(nav, currentKey, containerId) {
 
   const allKeys = ["home", "intro", "works", "contact"];
   allKeys
-    .filter(key => key !== currentKey)
-    .forEach(key => {
+    .filter((key) => key !== currentKey)
+    .forEach((key) => {
       const a = document.createElement("a");
-      a.href        = nav.links[key].href;
+      a.href = nav.links[key].href;
       a.textContent = nav.links[key].label;
+      // 點連結時收起行動選單
+      a.addEventListener("click", () => {
+        const btn = document.querySelector(".burger-btn");
+        if (btn && btn.classList.contains("is-open")) {
+          btn.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          container.classList.remove("nav-open");
+        }
+      });
       container.appendChild(a);
     });
 
@@ -34,21 +66,30 @@ function renderNavLinks(nav, currentKey, containerId) {
 }
 
 /**
- * 渲染 home 頁導覽列（放在 #home-nav，無 navTitle）
- * @param {Object} nav - data_*.js 中的 nav 物件
+ * 渲染 home 頁導覽列
+ * 漢堡按鈕掛在 .videoContainer（fixed 右上角，CSS 控制）
  */
 function renderHomeNav(nav) {
   renderNavLinks(nav, "home", "home-nav");
+
+  // 掛到 .videoContainer，讓 CSS 用 .videoContainer > .burger-btn 定位
+  const videoContainer = document.querySelector(".videoContainer");
+  if (!videoContainer) return;
+  const burger = createBurgerBtn("home-nav");
+  videoContainer.appendChild(burger);
 }
 
 /**
- * 渲染 inner 頁導覽列（放在 .navigator，含 navTitle）
- * @param {Object} nav        - data_*.js 中的 nav 物件
- * @param {string} currentKey - 當前頁的 key
- * @param {string} navId      - navArea 容器的 id
+ * 渲染 inner 頁導覽列
+ * 漢堡按鈕 append 至 .navigator 最末端（flex 最右側）
  */
 function renderInnerNav(nav, currentKey, navId) {
   const titleEl = document.getElementById("nav-site-title");
   if (titleEl) titleEl.textContent = nav.siteTitle;
   renderNavLinks(nav, currentKey, navId);
+
+  const navigator = document.querySelector(".navigator");
+  if (!navigator) return;
+  const burger = createBurgerBtn(navId);
+  navigator.appendChild(burger);
 }

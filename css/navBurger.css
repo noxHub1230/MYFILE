@@ -1,0 +1,173 @@
+/* ═══════════════════════════════════════════════
+   漢堡選單 ── RWD nav burger menu
+   ═══════════════════════════════════════════════ */
+
+/* ── 桌面端：漢堡按鈕完全隱藏，不佔任何空間 ── */
+.burger-btn {
+  display: none !important;
+}
+
+/* ── 桌面端：navArea 維持原本顯示，不受影響 ── */
+/* （不在此寫任何 navArea 規則，讓各頁 CSS 自行控制） */
+
+/* ══════════════════════════════════════════
+   行動端 ≤768px
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* ── navArea：行動端預設隱藏 ── */
+  /* inner 頁 */
+  .navigator .navArea {
+    display: none !important;
+  }
+  .navigator .navArea.nav-open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 10px 0 16px;
+    background: linear-gradient(
+      180deg,
+      rgb(29, 21, 67),
+      rgb(32, 22, 82),
+      rgba(35, 33, 92, 0.97)
+    );
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    animation: navSlideDown 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+    min-width: unset;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navigator .navArea.nav-open a {
+    margin: 0;
+    padding: 10px 24px;
+    font-size: 1.05em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .navigator .navArea.nav-open .langDropdown {
+    margin-left: 24px;
+    margin-top: 4px;
+  }
+
+  /* inner 頁 .navigator 需要 position:relative 讓 absolute 子元素定位正確 */
+  .navigator {
+    position: sticky !important; /* 保留 sticky */
+    /* absolute 子元素 top:100% 相對於最近的 positioned ancestor，
+       sticky 本身即為 positioned，所以不需額外 relative */
+  }
+
+  /* home 頁 #home-nav */
+  #home-nav {
+    display: none !important;
+  }
+  #home-nav.nav-open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 80px 0 24px;
+    background: rgba(29, 21, 67, 0.97);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    z-index: 90;
+    animation: navSlideDown 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  #home-nav.nav-open a {
+    padding: 14px 0;
+    font-size: 1.2em;
+  }
+
+  /* ── 漢堡按鈕：行動端顯示 ── */
+  .burger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+    /* inner 頁：在 .navigator flex 最右端 */
+    margin-left: auto;
+    margin-right: 12px;
+  }
+
+  /* home 頁：fixed 定位右上角 */
+  .videoContainer > .burger-btn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    margin: 0;
+  }
+
+  /* ── 漢堡三條線 ── */
+  .burger-bar,
+  .burger-bar::before,
+  .burger-bar::after {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #affcff;
+    box-shadow: 0 0 5px aqua;
+    border-radius: 2px;
+    transition:
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.25s ease;
+  }
+
+  .burger-bar {
+    position: relative;
+  }
+
+  .burger-bar::before,
+  .burger-bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .burger-bar::before {
+    top: -8px;
+  }
+  .burger-bar::after {
+    top: 8px;
+  }
+
+  /* ── is-open：叉叉狀態 ── */
+  .burger-btn.is-open .burger-bar::before {
+    opacity: 0;
+    transform: translateY(8px) scaleX(0);
+  }
+
+  .burger-btn.is-open .burger-bar {
+    transform: rotate(45deg);
+  }
+
+  .burger-btn.is-open .burger-bar::after {
+    transform: translateY(-8px) rotate(-90deg);
+  }
+
+  /* ── 展開動畫 ── */
+  @keyframes navSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

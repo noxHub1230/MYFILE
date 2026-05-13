@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./css/navBurger.css" />
     <link href="./css/intro.css" rel="stylesheet" />
     <link href="./css/loading.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/navLang.css" />
     <link rel="icon" href="./assets/webicon.ico" type="image/x-icon" />
     <script src="./js/loading.js" defer></script>
     <script src="./js/carousel_intro.js" defer></script>
@@ -62,7 +68,6 @@
         <!-- Content sections and showcase images injected by JS -->
       </main>
     </div>
-
     <script src="./js/lang_switcher.js"></script>
     <script src="./js/nav.js"></script>
     <script>
@@ -123,7 +128,8 @@
             bodyEl.appendChild(ul);
           } else if (section.type === "paragraph") {
             const p = document.createElement("p");
-            p.innerHTML = section.lines.join("<br>");
+            p.innerHTML = section.lines;
+            p.style.whiteSpace = "pre-line";
             bodyEl.appendChild(p);
           }
 

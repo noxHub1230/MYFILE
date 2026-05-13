@@ -5,7 +5,10 @@
  */
 
 const LANG_KEY = "preferred_lang";
-const LANGS = ["TW", "JP"];
+const LANGS = [
+  { code: "TW", label: "繁體中文" },
+  { code: "JP", label: "日本語" },
+];
 
 // 取得目前語言（預設 TW）
 function getCurrentLang() {
@@ -30,32 +33,54 @@ function loadData(callback) {
   document.head.appendChild(script);
 }
 
-// 在指定容器內建立語言切換按鈕群組
+// 在指定容器內建立語言切換 dropdown
 function renderLangSwitcher(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
   const current = getCurrentLang();
-  const wrapper = document.createElement("div");
-  wrapper.className = "langSwitcher";
 
-  LANGS.forEach((lang, i) => {
-    if (i > 0) {
-      const sep = document.createElement("span");
-      sep.className = "langSep";
-      sep.textContent = "/";
-      wrapper.appendChild(sep);
-    }
+  // 外層 wrapper
+  const dropdown = document.createElement("div");
+  dropdown.className = "dropdown langDropdown";
 
-    const btn = document.createElement("button");
-    btn.textContent = lang;
-    btn.className = "langBtn" + (lang === current ? " langBtn--active" : "");
-    btn.setAttribute("aria-pressed", lang === current ? "true" : "false");
-    btn.addEventListener("click", () => {
-      if (lang !== getCurrentLang()) setLang(lang);
+  // 觸發按鈕（globe icon）
+  const toggle = document.createElement("button");
+  toggle.className = "langDropdownToggle";
+  toggle.setAttribute("data-bs-toggle", "dropdown");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.innerHTML = `<i class="bi bi-globe2"></i>`;
+  dropdown.appendChild(toggle);
+
+  // 下拉選單
+  const menu = document.createElement("ul");
+  menu.className = "dropdown-menu langDropdownMenu";
+  menu.id = "navlang";
+
+  LANGS.forEach(({ code, label }) => {
+    const li = document.createElement("li");
+
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "lang";
+    input.id = `lang-${code.toLowerCase()}`;
+    input.className = "langRadio";
+    input.checked = code === current;
+    input.addEventListener("change", () => {
+      if (code !== getCurrentLang()) setLang(code);
     });
-    wrapper.appendChild(btn);
+
+    const labelEl = document.createElement("label");
+    labelEl.htmlFor = `lang-${code.toLowerCase()}`;
+    labelEl.className =
+      "langRadioLabel" + (code === current ? " langRadioLabel--active" : "");
+    labelEl.textContent = label;
+
+    li.appendChild(input);
+    li.appendChild(labelEl);
+    menu.appendChild(li);
   });
 
-  container.appendChild(wrapper);
+  dropdown.appendChild(menu);
+  container.appendChild(dropdown);
 }
