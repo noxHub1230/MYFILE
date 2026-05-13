@@ -1,0 +1,570 @@
+/* =============================================================
+   works.css
+   日本式「間（Ma）」設計美學 — 強調餘白、細線、微互動
+   用色與字體完全沿用原有設定，不做更動。
+   動畫邏輯由 GSAP 控制（見 works.html 的 <script>）
+   ============================================================= */
+
+/* ── 字體引入（與原版相同） ── */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Serif+TC:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Serif+TC:wght@200..900&family=Zen+Maru+Gothic&display=swap");
+
+/* ── CSS 自訂屬性（與原版用色完全一致） ── */
+:root {
+  --col-text: #affcff;
+  --col-glow: aqua;
+  --col-accent: #2f25fa;
+  --col-bg-deep: rgb(8, 26, 107);
+  --col-nav-start: rgb(29, 21, 67);
+  --col-nav-end: rgba(31, 50, 121, 0.8);
+
+  /* 間（Ma）設計用的間距變數 */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 56px;
+  --space-xl: 80px;
+
+  --radius-card: 4px;
+  --transition-fast: 0.25s linear;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+/* =============================================================
+   導覽列（原版樣式完全保留）
+   ============================================================= */
+.navigator {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  color: var(--col-text);
+  align-self: start;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    var(--col-nav-start),
+    rgb(32, 22, 82),
+    rgba(32, 22, 82),
+    rgb(35, 33, 92),
+    var(--col-nav-end)
+  );
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.navTitle {
+  font-family: "Noto Serif TC", serif;
+  text-align: center;
+  margin: 0 0 0 20px;
+  text-shadow: 0 0 5px aqua;
+}
+.navArea {
+  min-width: 50%;
+  display: flex;
+  justify-content: end;
+}
+.navArea a {
+  text-decoration: none;
+  color: var(--col-text);
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-shadow: 0 0 5px aqua;
+  transition:
+    text-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+.navArea a:hover {
+  color: var(--col-text);
+  text-decoration: none;
+  text-shadow:
+    0 0 2px var(--col-text),
+    5px 5px 10px var(--col-accent),
+    5px 5px 10px var(--col-accent),
+    -5px -5px 10px var(--col-accent),
+    -5px -5px 10px var(--col-accent),
+    -5px 5px 10px var(--col-accent),
+    -5px 5px 10px var(--col-accent),
+    5px -5px 10px var(--col-accent),
+    5px -5px 10px var(--col-accent);
+  transform: translateY(-5px);
+}
+.navArea a:active {
+  color: var(--col-accent);
+  text-shadow:
+    0 0 2px var(--col-accent),
+    5px 5px 10px var(--col-text),
+    -5px -5px 10px var(--col-text),
+    -5px 5px 10px var(--col-text),
+    5px -5px 10px var(--col-text);
+  transform: translateY(1px);
+}
+
+/* ── 語言切換元件（原版保留） ── */
+.langSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.langSep {
+  color: var(--col-text);
+  opacity: 0.5;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 1em;
+  user-select: none;
+}
+.langBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--col-text);
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-shadow: 0 0 5px aqua;
+  transition:
+    text-shadow var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+  opacity: 0.55;
+  letter-spacing: 0.03em;
+}
+.langBtn:hover {
+  opacity: 1;
+  text-shadow:
+    0 0 2px var(--col-text),
+    5px 5px 10px var(--col-accent),
+    -5px -5px 10px var(--col-accent),
+    -5px 5px 10px var(--col-accent),
+    5px -5px 10px var(--col-accent);
+  transform: translateY(-3px);
+}
+.langBtn--active {
+  opacity: 1;
+  color: var(--col-text);
+  text-shadow:
+    0 0 8px aqua,
+    0 0 3px var(--col-text);
+  cursor: default;
+  transform: none !important;
+}
+
+/* =============================================================
+   背景層（完全沿用原版）
+   ============================================================= */
+.renderLayer {
+  position: absolute;
+  z-index: -3;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgb(28, 28, 37),
+    rgb(32, 22, 82),
+    rgba(32, 22, 82),
+    rgb(35, 33, 92),
+    rgba(31, 50, 121, 0.8)
+  );
+  mix-blend-mode: hue;
+}
+.BGvideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -4;
+  object-fit: cover;
+  filter: brightness(0.5) contrast(2);
+}
+.BGcontainer {
+  position: absolute;
+  z-index: -5;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =============================================================
+   主容器 — 寬列置中，充分留白
+   ============================================================= */
+.mainContainer {
+  position: absolute;
+  z-index: 1;
+  width: min(760px, 90%); /* 窄而聚焦，留出兩側空氣感 */
+  margin-top: 80px;
+  margin-bottom: var(--space-xl);
+  align-self: start;
+  padding: 0 var(--space-sm);
+}
+
+/* =============================================================
+   頁面標題區塊（日式設計：eyebrow 小字 + 大標題 + 細線）
+   ============================================================= */
+.pageHeader {
+  padding: var(--space-lg) 0 var(--space-md) 0;
+}
+.pageHeader__eyebrow {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--col-text);
+  opacity: 0.55;
+  margin-bottom: var(--space-xs);
+}
+.pageHeader__title {
+  font-family: "Noto Serif TC", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  color: var(--col-text);
+  text-shadow: 0 0 5px aqua;
+  margin: 0 0 var(--space-md) 0;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+.pageHeader__line {
+  height: 1px;
+  background: var(--col-text);
+  opacity: 0.35;
+  /* scaleX 動畫由 GSAP 控制 */
+  transform-origin: left center;
+}
+
+/* =============================================================
+   專案列表
+   ============================================================= */
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); /* 卡片間距 — 以「間」取代密集堆疊 */
+  padding-bottom: var(--space-xl);
+}
+
+/* =============================================================
+   專案卡片（折疊式模板）
+   Bootstrap collapse 控制 show/hide，GSAP 控制箭頭旋轉
+   ============================================================= */
+.projectCard {
+  border: 1px solid rgba(175, 252, 255, 0.18);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: rgba(8, 26, 107, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.projectCard:hover {
+  border-color: rgba(175, 252, 255, 0.38);
+  box-shadow: 0 0 24px rgba(175, 252, 255, 0.06);
+}
+
+/* ── 卡片標題列（點擊觸發 collapse） ── */
+.projectCard__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-md);
+  cursor: pointer;
+  user-select: none;
+  /* 底線：僅在展開時顯示（透過 .show 相鄰元素） */
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+/* 已展開的卡片標題加底線 */
+.projectCard__body.show ~ * {
+  display: none;
+} /* placeholder — 實際由下方 JS 監聽 */
+.projectCard__header:has(+ .projectCard__body.show),
+.projectCard__header[aria-expanded="true"] {
+  border-bottom-color: rgba(175, 252, 255, 0.15);
+  background: rgba(8, 26, 107, 0.25);
+}
+.projectCard__header:hover img {
+  scale: 150%;
+  filter: drop-shadow(0 0 1px aqua);
+  transition: 0.5s;
+}
+
+/* 標題文字（GSAP hover 微位移作用對象） */
+.projectCard__title {
+  font-family: "Klee One", cursive;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--col-text);
+  text-shadow: 0 0 3px aqua;
+  margin: 0;
+  flex: 1;
+  letter-spacing: 0.06em;
+}
+
+/* 箭頭圖示（GSAP 控制旋轉） */
+.projectCard__arrow {
+  color: var(--col-text);
+  opacity: 0.5;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.arrowIcon {
+  display: block;
+  scale: 200%;
+}
+
+.projectCard__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-md) var(--space-md) var(--space-lg) var(--space-md);
+}
+
+/* =============================================================
+   infoRow — 左右兩欄資訊列（標籤 + 值）
+   日式設計：細線分隔，大量留白，低調標籤
+   ============================================================= */
+.infoRow {
+  display: grid;
+  grid-template-columns: 7em 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(175, 252, 255, 0.08);
+  font-size: 1.25rem;
+}
+.infoRow:last-child {
+  border-bottom: none;
+}
+.infoRow__label {
+  font-family: "Zen Maru Gothic", sans-serif;
+  letter-spacing: 0.12em;
+  color: var(--col-text);
+  opacity: 0.45;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+.infoRow__value {
+  font-family: "Zen Maru Gothic", sans-serif;
+  color: var(--col-text);
+  line-height: 1.7;
+}
+
+/* =============================================================
+   備註文字（細小、低透明度）
+   ============================================================= */
+.infoNote {
+  display: inline;
+  font-size: 1em;
+  opacity: 0.55;
+  margin-left: 0.3em;
+}
+
+/* =============================================================
+   連結樣式
+   ============================================================= */
+.infoLink {
+  color: aqua;
+  text-decoration: none;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+  padding-bottom: 1px;
+  transition:
+    border-color var(--transition-fast),
+    text-shadow var(--transition-fast);
+}
+.infoLink:hover {
+  color: aqua;
+  border-bottom-color: aqua;
+  text-shadow: 0 0 6px aqua;
+}
+
+/* =============================================================
+   色票配色（原版互動邏輯保留，視覺刷新）
+   GSAP 控制 height 與 label opacity
+   ============================================================= */
+.colorPalette {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.colorSwatch {
+  height: 18px; /* GSAP hover 展開至 52px */
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: default;
+}
+.colorSwatch__label {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 1rem;
+  color: var(--col-text);
+  text-shadow:
+    0 0 4px #6176ff,
+    0 0 4px #6176ff,
+    0 0 2px black;
+  opacity: 0; /* GSAP hover 時 opacity → 1 */
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+
+/* =============================================================
+   製作疑難列表
+   ============================================================= */
+.challengeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.challengeList__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.challenge__problem {
+  color: var(--col-text);
+  opacity: 0.85;
+}
+.challenge__arrow {
+  opacity: 0.4;
+  margin: 1px 0;
+}
+.challenge__solution {
+  color: var(--col-text);
+}
+.challenge__note {
+  display: block;
+  font-size: 1rem;
+  opacity: 0.5;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+/* =============================================================
+   Bullet 點列表 / 連結列表
+   ============================================================= */
+.bulletList,
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bulletList li::before {
+  content: "·  ";
+  opacity: 0.4;
+}
+.bulletList li,
+.linkList li {
+  font-size: 0.88rem;
+  color: var(--col-text);
+  line-height: 1.6;
+}
+
+/* =============================================================
+   輪播按鈕（保留，以防其他頁面共用）
+   ============================================================= */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(175, 252, 255, 0.2);
+  border: none;
+  color: var(--col-text);
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 5px aqua;
+}
+.carousel-btn:hover {
+  background: rgba(175, 252, 255, 0.4);
+  text-shadow: 0 0 10px aqua;
+}
+.prev-btn {
+  left: 10px;
+}
+.next-btn {
+  right: 10px;
+}
+
+/* =============================================================
+   RWD — 小螢幕調整
+   ============================================================= */
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    width: 95%;
+    padding: 0 var(--space-xs);
+  }
+  .pageHeader {
+    padding: var(--space-md) 0 var(--space-sm) 0;
+  }
+  .infoRow {
+    grid-template-columns: 6em 1fr;
+  }
+  .projectCard__header {
+    padding: var(--space-sm) var(--space-sm);
+  }
+  .projectCard__inner {
+    padding: var(--space-sm) var(--space-sm) var(--space-md) var(--space-sm);
+  }
+  .BGvideo {
+    transform: scaleY(1.66);
+  }
+  .BGcontainer,
+  .renderLayer {
+    min-height: 1800px;
+  }
+}
