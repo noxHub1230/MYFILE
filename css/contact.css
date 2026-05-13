@@ -22,7 +22,7 @@ body {
   left: 0;
   right: 0;
   width: 100%;
-  height: auto;
+  height: minmax(5.5rem);
   display: flex;
   flex-direction: row;
   color: #affcff;
@@ -54,7 +54,7 @@ body {
   text-decoration: none;
   color: #affcff;
   font-family: "Zen Maru Gothic", sans-serif;
-  font-size: 20px;
+  font-size: 1.5rem;
   margin-left: 5%;
   margin-right: 5%;
   text-shadow: 0 0 5px aqua;
