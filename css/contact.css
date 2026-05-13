@@ -22,7 +22,7 @@ body {
   left: 0;
   right: 0;
   width: 100%;
-  height: minmax(5.5rem);
+  height: 4rem;
   display: flex;
   flex-direction: row;
   color: #affcff;
