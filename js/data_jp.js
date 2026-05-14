@@ -100,35 +100,35 @@ Webデザイナーとして、見た目だけでなく、
 商品ページではフィルタリング機能と詳細表示機能を実装し、
 情報量が多い中でも目的の商品へアクセスしやすいUI構成を意識しました。`,
           },
-          {
-            label: "カラーパレット",
-            palette: [
-              {
-                id: "For dark theme color (text, nav item hover background)",
-                color: "#43453c",
-              },
-              {
-                id: "For light theme color (text on dark, hover glow, background)",
-                color: "#d0d9be",
-              },
-              {
-                id: "For nav background / footer background",
-                color: "#000000",
-              },
-              {
-                id: "For content section background gradient (top)",
-                color: "rgba(208, 217, 190, 0.9)",
-              },
-              {
-                id: "For content section background gradient (mid)",
-                color: "rgba(151, 128, 46, 0.9)",
-              },
-              {
-                id: "For content section background gradient (bottom)",
-                color: "rgba(106, 35, 0, 0.9)",
-              },
-            ],
-          },
+          // {
+          //   label: "カラーパレット",
+          //   palette: [
+          //     {
+          //       id: "For dark theme color (text, nav item hover background)",
+          //       color: "#43453c",
+          //     },
+          //     {
+          //       id: "For light theme color (text on dark, hover glow, background)",
+          //       color: "#d0d9be",
+          //     },
+          //     {
+          //       id: "For nav background / footer background",
+          //       color: "#000000",
+          //     },
+          //     {
+          //       id: "For content section background gradient (top)",
+          //       color: "rgba(208, 217, 190, 0.9)",
+          //     },
+          //     {
+          //       id: "For content section background gradient (mid)",
+          //       color: "rgba(151, 128, 46, 0.9)",
+          //     },
+          //     {
+          //       id: "For content section background gradient (bottom)",
+          //       color: "rgba(106, 35, 0, 0.9)",
+          //     },
+          //   ],
+          // },
           {
             label: "制作上の課題",
             list: [
@@ -208,34 +208,34 @@ Webデザイナーとして、見た目だけでなく、
 Toyhouse特有の制約がある環境下でも、
 デザイン性と閲覧性の両立を目指して制作いたしました。。`,
           },
-          {
-            label: "カラーパレット",
-            palette: [
-              { id: "For text shadow", color: "aqua" },
-              {
-                id: "For text color, text shadow(active), line",
-                color: "#affcff",
-              },
-              {
-                id: "For text shadow(hover), text color(active)",
-                color: "#2f25fa",
-              },
-              {
-                id: "For reder layer of left area",
-                color: "rgba(8, 26, 107, 0.99)",
-              },
-              {
-                id: "For reder layer of page background",
-                color:
-                  "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
-              },
-              {
-                id: "For navigator background",
-                color:
-                  "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
-              },
-            ],
-          },
+          // {
+          //   label: "カラーパレット",
+          //   palette: [
+          //     { id: "For text shadow", color: "aqua" },
+          //     {
+          //       id: "For text color, text shadow(active), line",
+          //       color: "#affcff",
+          //     },
+          //     {
+          //       id: "For text shadow(hover), text color(active)",
+          //       color: "#2f25fa",
+          //     },
+          //     {
+          //       id: "For reder layer of left area",
+          //       color: "rgba(8, 26, 107, 0.99)",
+          //     },
+          //     {
+          //       id: "For reder layer of page background",
+          //       color:
+          //         "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+          //     },
+          //     {
+          //       id: "For navigator background",
+          //       color:
+          //         "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+          //     },
+          //   ],
+          // },
           {
             label: "制作上の課題",
             list: [
@@ -313,34 +313,34 @@ Toyhouse特有の制約がある環境下でも、
 派手な動きより、触れたときにちょっと嬉しくなるような、
 さりげない体験を大切にしたかったからです。`,
           },
-          {
-            label: "カラーパレット",
-            palette: [
-              { id: "For text shadow", color: "aqua" },
-              {
-                id: "For text color, text shadow(active), line",
-                color: "#affcff",
-              },
-              {
-                id: "For text shadow(hover), text color(active)",
-                color: "#2f25fa",
-              },
-              {
-                id: "For reder layer of left area",
-                color: "rgba(8, 26, 107, 0.99)",
-              },
-              {
-                id: "For reder layer of page background",
-                color:
-                  "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
-              },
-              {
-                id: "For navigator background",
-                color:
-                  "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
-              },
-            ],
-          },
+          // {
+          //   label: "カラーパレット",
+          //   palette: [
+          //     { id: "For text shadow", color: "aqua" },
+          //     {
+          //       id: "For text color, text shadow(active), line",
+          //       color: "#affcff",
+          //     },
+          //     {
+          //       id: "For text shadow(hover), text color(active)",
+          //       color: "#2f25fa",
+          //     },
+          //     {
+          //       id: "For reder layer of left area",
+          //       color: "rgba(8, 26, 107, 0.99)",
+          //     },
+          //     {
+          //       id: "For reder layer of page background",
+          //       color:
+          //         "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+          //     },
+          //     {
+          //       id: "For navigator background",
+          //       color:
+          //         "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+          //     },
+          //   ],
+          // },
           {
             label: "制作上の課題",
             list: [

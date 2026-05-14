@@ -139,23 +139,24 @@
             const valueEl = document.createElement("div");
             valueEl.className = "infoRow__value";
 
-            if (item.palette) {
-              /* 色票配色 / カラーパレット */
-              const palette = document.createElement("div");
-              palette.className = "colorPalette";
-              item.palette.forEach((swatch) => {
-                const sDiv = document.createElement("div");
-                sDiv.className = "colorSwatch";
-                sDiv.id = swatch.id;
-                sDiv.style.background = swatch.color;
-                const label = document.createElement("span");
-                label.className = "colorSwatch__label";
-                label.textContent = swatch.id;
-                sDiv.appendChild(label);
-                palette.appendChild(sDiv);
-              });
-              valueEl.appendChild(palette);
-            } else if (item.state) {
+            // if (item.palette) {
+            //   /* 色票配色 / カラーパレット */
+            //   const palette = document.createElement("div");
+            //   palette.className = "colorPalette";
+            //   item.palette.forEach((swatch) => {
+            //     const sDiv = document.createElement("div");
+            //     sDiv.className = "colorSwatch";
+            //     sDiv.id = swatch.id;
+            //     sDiv.style.background = swatch.color;
+            //     const label = document.createElement("span");
+            //     label.className = "colorSwatch__label";
+            //     label.textContent = swatch.id;
+            //     sDiv.appendChild(label);
+            //     palette.appendChild(sDiv);
+            //   });
+            //   valueEl.appendChild(palette);
+            // } else
+            if (item.state) {
               const state = document.createElement("div");
               state.className = "projectState";
               state.textContent = item.state[0];
