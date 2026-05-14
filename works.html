@@ -39,9 +39,11 @@
   <body>
     <div class="BGcontainer">
       <div class="renderLayer"></div>
-      <video autoplay muted loop preload="auto" class="BGvideo">
-        <source src="./assets/works_BG.mp4" type="video/mp4" />
-      </video>
+      <img
+        class="BGvideo"
+        src="https://images.unsplash.com/photo-1735192395661-9fef6e2ec447?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="background"
+      />
 
       <!-- ── 導覽列 ── -->
       <div class="navigator">
@@ -64,10 +66,6 @@
         <!-- 專案列表（由 JS 動態注入） -->
         <div class="projectList" id="works-content"></div>
       </div>
-
-      <video autoplay muted loop preload="auto" class="BGvideo">
-        <source src="./assets/works_BG.mp4" type="video/mp4" />
-      </video>
     </div>
     <script src="./js/nav.js"></script>
     <script>
