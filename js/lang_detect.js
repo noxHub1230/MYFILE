@@ -19,8 +19,8 @@
 (function () {
   const LANG_KEY = "preferred_lang";
 
-  //   // 已有手動設定就不動
-  //   if (localStorage.getItem(LANG_KEY)) return;
+  // 已有手動設定就不動
+  if (localStorage.getItem(LANG_KEY)) return;
 
   // navigator.languages 是陣列（依優先序排列），fallback 到 navigator.language
   const browserLangs = navigator.languages?.length
