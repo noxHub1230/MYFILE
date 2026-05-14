@@ -21,7 +21,7 @@ const DATA_JP = {
     pageTitle: "KYW",
     sections: [
       {
-        heading: "学歴・経歴",
+        heading: "経歴",
         type: "list",
         items: [
           {
@@ -31,8 +31,7 @@ const DATA_JP = {
             text: "国立台北教育大学",
             children: [
               {
-                text: "芸術造形デザイン学科（芸術コース）",
-                note: "1年次（転科前）",
+                text: "芸術と造形デザイン学科",
               },
               {
                 text: "デジタルテクノロジーデザイン学科",

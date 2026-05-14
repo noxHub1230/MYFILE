@@ -21,7 +21,7 @@ const DATA_TW = {
     pageTitle: "KYW",
     sections: [
       {
-        heading: "學歷・經歷",
+        heading: "經歷",
         type: "list",
         items: [
           {
@@ -31,8 +31,7 @@ const DATA_TW = {
             text: "國立臺北教育大學",
             children: [
               {
-                text: "藝術造形設計學系（藝術組）",
-                note: "大一時期（轉系前）",
+                text: "藝術與造形設計學系",
               },
               {
                 text: "數位科技設計學系",
@@ -59,7 +58,7 @@ const DATA_TW = {
 便能快速調整與配合。
 比起執著於自己的方案，我更重視「團隊能共同完成更好的作品」。
 
-作為一名Web設計師，
+作為一名網頁設計師，
 我希望能與團隊一起打造不只是外觀美觀，
 也能讓使用者自然直覺操作的網站。`,
         ],
