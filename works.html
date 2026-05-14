@@ -166,6 +166,13 @@
               state.style.padding = "0.25rem";
               state.style.borderRadius = "1rem";
               valueEl.appendChild(state);
+              const demoLink = document.createElement("a");
+              demoLink.style.color = "#affcff";
+              demoLink.className = "demoLink";
+              demoLink.target = "_blank";
+              demoLink.innerHTML = `DEMO <i class="bi bi-box-arrow-up-right"></i>`;
+              demoLink.href = item.state[2];
+              valueEl.appendChild(demoLink);
             } else if (item.list) {
               /* 製作疑難 / 制作上の課題 */
               const list = document.createElement("ul");

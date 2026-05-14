@@ -74,7 +74,7 @@ Webデザイナーとして、見た目だけでなく、
         items: [
           {
             label: "ステータス",
-            state: ["開発中", "#695e3f"],
+            state: ["開発中", "#695e3f", "https://tea-shop-q3tn.vercel.app/"],
           },
           {
             label: "作品種別",
@@ -181,7 +181,7 @@ Webデザイナーとして、見た目だけでなく、
         items: [
           {
             label: "ステータス",
-            state: ["完成", "#3f693f"],
+            state: ["完成", "#3f693f", "https://toyhou.se/Nokinok"],
           },
           {
             label: "作品種別",
@@ -284,7 +284,11 @@ Toyhouse特有の制約がある環境下でも、
         items: [
           {
             label: "ステータス",
-            state: ["完成", "#3f693f"],
+            state: [
+              "完成",
+              "#3f693f",
+              "https://unkn0321.github.io/2025WebPage2/",
+            ],
           },
           {
             label: "作品種別",
