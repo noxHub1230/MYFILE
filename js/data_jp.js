@@ -70,60 +70,62 @@ Webデザイナーとして、見た目だけでなく、
     pageTitle: "制作実績",
     projects: [
       {
-        heading: "MYFILE(旧版)",
+        heading: "古林萃室",
         items: [
           {
             label: "ステータス",
-            state: ["完成", "#3f693f"],
+            state: ["開発中", "#695e3f"],
           },
           {
             label: "作品種別",
             value: "Webサイト",
-            note: "GitHub Pages",
+            note: "React フレームワーク使用・Vercel にてデプロイ",
           },
           {
             label: "コンセプト",
-            description: `「静かだけど、記憶に残る」サイトを目指してデザインしました。
+            description: `深みのあるオリーブグリーンと柔らかなベージュ系カラーを基調とし、
+ブランドコンセプトである「自然・静けさ・伝統」を感じられるデザインを目指しました。
 
-深みのある藍紫色をベースに、テキストに淡い発光表現を加えることで、
-暗い背景の中でも読みやすく、全体に統一感のある雰囲気をつくっています。
+背景にはグラデーションや全幅カルーセルを組み合わせ、
+茶園の空気感や落ち着いた雰囲気が伝わるよう構成しています。
 
-背景動画の上に半透明レイヤーを重ねたのは、
-セクションごとに印象がバラバラにならないようにするためです。
-動画の動きを生かしつつ、コンテンツが主役になるバランスを意識しました。
+フォントは明朝体を中心に選定し、
+見出し・本文・ナビゲーションで役割を分けることで、
+情報の読みやすさとブランドイメージの両立を意識しました。
 
-フォントは見出し・本文・ナビゲーションで使い分け、
-「どこを先に読めばいいか」が自然にわかる構成にしています。
+また、GSAP ScrollTriggerを用いたスクロールアニメーションにより、
+コンテンツが自然な流れで表示されるよう設計し、
+閲覧時にゆったりとしたリズムを感じられる体験を目指しています。
 
-ホバー時のアニメーションはあえて小さくシンプルにしました。
-派手な動きより、触れたときにちょっと嬉しくなるような、
-さりげない体験を大切にしたかったからです。`,
+商品ページではフィルタリング機能と詳細表示機能を実装し、
+情報量が多い中でも目的の商品へアクセスしやすいUI構成を意識しました。`,
           },
           {
             label: "カラーパレット",
             palette: [
-              { id: "For text shadow", color: "aqua" },
               {
-                id: "For text color, text shadow(active), line",
-                color: "#affcff",
+                id: "For dark theme color (text, nav item hover background)",
+                color: "#43453c",
               },
               {
-                id: "For text shadow(hover), text color(active)",
-                color: "#2f25fa",
+                id: "For light theme color (text on dark, hover glow, background)",
+                color: "#d0d9be",
               },
               {
-                id: "For reder layer of left area",
-                color: "rgba(8, 26, 107, 0.99)",
+                id: "For nav background / footer background",
+                color: "#000000",
               },
               {
-                id: "For reder layer of page background",
-                color:
-                  "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+                id: "For content section background gradient (top)",
+                color: "rgba(208, 217, 190, 0.9)",
               },
               {
-                id: "For navigator background",
-                color:
-                  "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+                id: "For content section background gradient (mid)",
+                color: "rgba(151, 128, 46, 0.9)",
+              },
+              {
+                id: "For content section background gradient (bottom)",
+                color: "rgba(106, 35, 0, 0.9)",
               },
             ],
           },
@@ -131,10 +133,21 @@ Webデザイナーとして、見た目だけでなく、
             label: "制作上の課題",
             list: [
               {
-                text: "一部の機能の実装にJavaScriptが必要とわかった",
-                solution: "参考資料を調べながら自力で実装方法を考え、解決し",
-                note: `同じ処理でもJavaScriptに移すほうがCSSの記述量を減らせる場合があることを発見した。
-                最初から「これはCSSで書く」と決めずに、柔軟に手段を選ぶことが大切だと感じた。`,
+                text: `GSAPのアニメーションがReactの再レンダリング後に動かなくなった`,
+                solution: `useEffect内でGSAPを初期化し、
+                  gsapSetup.jsにプラグイン登録をまとめることでマウント後に一度だけ実行されるよう整理した
+                  `,
+                note: `Reactの「いつ何が起きるか」の流れをちゃんと理解していないと、
+                ライブラリとの連携でハマることがわかった。
+                エラーが出るたびに仕組みへの理解が深まった。`,
+              },
+              {
+                text: `
+                ブレークポイントによってナビゲーションバーとコンテンツが重なってしまった`,
+                solution: `CSSカスタムプロパティ（--navHeight）でナビの高さを一元管理し、
+                calc()でmargin-topを動的に算出。media queryで細かく調整した`,
+                note: `「同じ値を何カ所にも書く」状態がバグの原因になると気づき、
+                変数で一元管理する習慣が自然に身についた。`,
               },
             ],
           },
@@ -143,8 +156,8 @@ Webデザイナーとして、見た目だけでなく、
             link: {
               text: ["バージョン更新履歴", "デプロイ成果物"],
               href: [
-                "https://github.com/unkn0321/2025WebPage2/commits/main/",
-                "https://unkn0321.github.io/2025WebPage2/",
+                "https://github.com/noxHub1230/teaShop/commits/main/",
+                "https://tea-shop-q3tn.vercel.app/",
               ],
             },
           },
@@ -152,20 +165,12 @@ Webデザイナーとして、見た目だけでなく、
             label: "使用素材",
             links: [
               {
-                text: "Intro Page Background",
-                href: "https://www.pexels.com/video/a-pastel-of-yellow-liquid-forms-different-patterns-3051357/",
+                text: "Home Page Background",
+                href: "https://giphy.com/gifs/forest-TuptaxRZphuyA",
               },
               {
-                text: "Works Page Background",
-                href: "https://www.pexels.com/video/abstract-video-4990242/",
-              },
-              {
-                text: "Contact Page Background",
-                href: "https://www.pexels.com/video/a-close-up-of-a-white-wave-pattern-4779866/",
-              },
-              {
-                text: "left Area Background",
-                href: "https://www.hcn.org/issues/54-9/climate-change-how-a-hidden-cave-can-help-scientists-understand-the-climate/",
+                text: "Other images are generated by ChatGPT.",
+                href: "https://chatgpt.com",
               },
             ],
           },
@@ -275,62 +280,60 @@ Toyhouse特有の制約がある環境下でも、
         ],
       },
       {
-        heading: "古林萃室",
+        heading: "MYFILE(旧版)",
         items: [
           {
             label: "ステータス",
-            state: ["開発中", "#695e3f"],
+            state: ["完成", "#3f693f"],
           },
           {
             label: "作品種別",
             value: "Webサイト",
-            note: "React フレームワーク使用・Vercel にてデプロイ",
+            note: "GitHub Pages",
           },
           {
             label: "コンセプト",
-            description: `深みのあるオリーブグリーンと柔らかなベージュ系カラーを基調とし、
-ブランドコンセプトである「自然・静けさ・伝統」を感じられるデザインを目指しました。
+            description: `「静かだけど、記憶に残る」サイトを目指してデザインしました。
 
-背景にはグラデーションや全幅カルーセルを組み合わせ、
-茶園の空気感や落ち着いた雰囲気が伝わるよう構成しています。
+深みのある藍紫色をベースに、テキストに淡い発光表現を加えることで、
+暗い背景の中でも読みやすく、全体に統一感のある雰囲気をつくっています。
 
-フォントは明朝体を中心に選定し、
-見出し・本文・ナビゲーションで役割を分けることで、
-情報の読みやすさとブランドイメージの両立を意識しました。
+背景動画の上に半透明レイヤーを重ねたのは、
+セクションごとに印象がバラバラにならないようにするためです。
+動画の動きを生かしつつ、コンテンツが主役になるバランスを意識しました。
 
-また、GSAP ScrollTriggerを用いたスクロールアニメーションにより、
-コンテンツが自然な流れで表示されるよう設計し、
-閲覧時にゆったりとしたリズムを感じられる体験を目指しています。
+フォントは見出し・本文・ナビゲーションで使い分け、
+「どこを先に読めばいいか」が自然にわかる構成にしています。
 
-商品ページではフィルタリング機能と詳細表示機能を実装し、
-情報量が多い中でも目的の商品へアクセスしやすいUI構成を意識しました。`,
+ホバー時のアニメーションはあえて小さくシンプルにしました。
+派手な動きより、触れたときにちょっと嬉しくなるような、
+さりげない体験を大切にしたかったからです。`,
           },
           {
             label: "カラーパレット",
             palette: [
+              { id: "For text shadow", color: "aqua" },
               {
-                id: "For dark theme color (text, nav item hover background)",
-                color: "#43453c",
+                id: "For text color, text shadow(active), line",
+                color: "#affcff",
               },
               {
-                id: "For light theme color (text on dark, hover glow, background)",
-                color: "#d0d9be",
+                id: "For text shadow(hover), text color(active)",
+                color: "#2f25fa",
               },
               {
-                id: "For nav background / footer background",
-                color: "#000000",
+                id: "For reder layer of left area",
+                color: "rgba(8, 26, 107, 0.99)",
               },
               {
-                id: "For content section background gradient (top)",
-                color: "rgba(208, 217, 190, 0.9)",
+                id: "For reder layer of page background",
+                color:
+                  "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
               },
               {
-                id: "For content section background gradient (mid)",
-                color: "rgba(151, 128, 46, 0.9)",
-              },
-              {
-                id: "For content section background gradient (bottom)",
-                color: "rgba(106, 35, 0, 0.9)",
+                id: "For navigator background",
+                color:
+                  "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
               },
             ],
           },
@@ -338,21 +341,10 @@ Toyhouse特有の制約がある環境下でも、
             label: "制作上の課題",
             list: [
               {
-                text: `GSAPのアニメーションがReactの再レンダリング後に動かなくなった`,
-                solution: `useEffect内でGSAPを初期化し、
-                  gsapSetup.jsにプラグイン登録をまとめることでマウント後に一度だけ実行されるよう整理した
-                  `,
-                note: `Reactの「いつ何が起きるか」の流れをちゃんと理解していないと、
-                ライブラリとの連携でハマることがわかった。
-                エラーが出るたびに仕組みへの理解が深まった。`,
-              },
-              {
-                text: `
-                ブレークポイントによってナビゲーションバーとコンテンツが重なってしまった`,
-                solution: `CSSカスタムプロパティ（--navHeight）でナビの高さを一元管理し、
-                calc()でmargin-topを動的に算出。media queryで細かく調整した`,
-                note: `「同じ値を何カ所にも書く」状態がバグの原因になると気づき、
-                変数で一元管理する習慣が自然に身についた。`,
+                text: "一部の機能の実装にJavaScriptが必要とわかった",
+                solution: "参考資料を調べながら自力で実装方法を考え、解決し",
+                note: `同じ処理でもJavaScriptに移すほうがCSSの記述量を減らせる場合があることを発見した。
+                最初から「これはCSSで書く」と決めずに、柔軟に手段を選ぶことが大切だと感じた。`,
               },
             ],
           },
@@ -361,8 +353,8 @@ Toyhouse特有の制約がある環境下でも、
             link: {
               text: ["バージョン更新履歴", "デプロイ成果物"],
               href: [
-                "https://github.com/noxHub1230/teaShop/commits/main/",
-                "https://tea-shop-q3tn.vercel.app/",
+                "https://github.com/unkn0321/2025WebPage2/commits/main/",
+                "https://unkn0321.github.io/2025WebPage2/",
               ],
             },
           },
@@ -370,12 +362,20 @@ Toyhouse特有の制約がある環境下でも、
             label: "使用素材",
             links: [
               {
-                text: "Home Page Background",
-                href: "https://giphy.com/gifs/forest-TuptaxRZphuyA",
+                text: "Intro Page Background",
+                href: "https://www.pexels.com/video/a-pastel-of-yellow-liquid-forms-different-patterns-3051357/",
               },
               {
-                text: "Other images are generated by ChatGPT.",
-                href: "https://chatgpt.com",
+                text: "Works Page Background",
+                href: "https://www.pexels.com/video/abstract-video-4990242/",
+              },
+              {
+                text: "Contact Page Background",
+                href: "https://www.pexels.com/video/a-close-up-of-a-white-wave-pattern-4779866/",
+              },
+              {
+                text: "left Area Background",
+                href: "https://www.hcn.org/issues/54-9/climate-change-how-a-hidden-cave-can-help-scientists-understand-the-climate/",
               },
             ],
           },
@@ -396,12 +396,6 @@ Toyhouse特有の制約がある環境下でも、
             text: "Facebook",
             href: "https://www.facebook.com/gao.yu.wen.697831",
           },
-          // { text: "Instagram", href: "https://www.instagram.com" },
-          // {
-          //   text: "X(Twitter)",
-          //   href: "https://twitter.com",
-          //   note: "(Twitter)",
-          // },
         ],
       },
       {
