@@ -69,7 +69,7 @@ const DATA_TW = {
 
   // ── works.html ───────────────────────────────────────────────
   works: {
-    pageTitle: "作品實績",
+    pageTitle: "專案作品",
     projects: [
       {
         heading: "古林萃室",
