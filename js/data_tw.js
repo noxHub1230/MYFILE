@@ -79,12 +79,12 @@ const DATA_TW = {
             state: ["開發中", "#695e3f", "https://tea-shop-q3tn.vercel.app/"],
           },
           {
-            label: "作品類型",
+            label: "作品類別",
             value: "網站",
             note: "使用 React 框架開發・部署於 Vercel",
           },
           {
-            label: "設計概念",
+            label: "設計理念",
             description: `以深沉的橄欖綠與柔和的米色系作為主色調，
 希望呈現品牌所強調的「自然、寧靜、傳統」氛圍。
 
@@ -157,9 +157,9 @@ const DATA_TW = {
             ],
           },
           {
-            label: "更新紀錄",
+            label: "版本歷程",
             link: {
-              text: ["版本更新紀錄", "部署成果"],
+              text: ["版本更新紀錄", "部署成品"],
               href: [
                 "https://github.com/noxHub1230/teaShop/commits/main/",
                 "https://tea-shop-q3tn.vercel.app/",
@@ -167,7 +167,7 @@ const DATA_TW = {
             },
           },
           {
-            label: "使用素材",
+            label: "素材使用",
             links: [
               {
                 text: "首頁背景",
@@ -181,7 +181,6 @@ const DATA_TW = {
           },
         ],
       },
-
       {
         heading: "Toyhouse 個人頁面模板",
         items: [
@@ -190,13 +189,13 @@ const DATA_TW = {
             state: ["完成", "#3f693f", "https://toyhou.se/Nokinok"],
           },
           {
-            label: "作品類型",
+            label: "作品類別",
             value: "Web（部分模板）",
             note: "",
           },
           {
-            label: "設計概念",
-            description: `以原創角色「末納刻希亞」的世界觀為基礎，
+            label: "設計理念",
+            description: `以原創角色「末納刻希亞」的特質為基礎，
 結合偏暗的藍紫色系與淡淡的發光效果，
 打造出帶有靜謐感的幻想風格設計。
 
@@ -258,15 +257,15 @@ const DATA_TW = {
             ],
           },
           {
-            label: "更新紀錄",
+            label: "版本歷程",
             link: {
-              text: ["", "部署成果"],
+              text: ["", "部屬成品"],
               href: ["#", "https://toyhou.se/Nokinok"],
               note: "由於是在Toyhouse內建編輯器上開發，因此沒有保留任何版本紀錄。",
             },
           },
           {
-            label: "使用素材",
+            label: "素材使用",
             links: [
               {
                 text: "背景",
@@ -283,6 +282,105 @@ const DATA_TW = {
               {
                 text: "背景音樂",
                 href: "https://www.youtube.com/watch?v=aHjpOzsQ9YI",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: "MYFILE(舊版)",
+        items: [
+          {
+            label: "狀態",
+            state: [
+              "已完成",
+              "#3f693f",
+              "https://unkn0321.github.io/2025WebPage2/",
+            ],
+          },
+          {
+            label: "作品類別",
+            value: "網頁",
+            note: "GitHub Page",
+          },
+          {
+            label: "設計理念",
+            description: `以深邃的深海藍紫色調為基底，
+            搭配螢光水藍色（aqua/#affcff）的文字發光效果，
+            營造出沉靜而帶有神秘感的視覺氛圍。
+            整體採用動態影片背景疊加半透明色層的手法，
+            使頁面在不同區塊間維持統一的色彩語境。
+            字體選用兼顧典雅與現代感的 Noto Serif TC、Klee One 與 Zen Maru Gothic，
+            分別對應標題、導覽與說明文字等不同層次的排版需求。
+            互動設計上強調微動效，透過文字懸停時的位移與光暈變化，
+            在克制的視覺語言中帶出細膩的操作回饋。`,
+          },
+          {
+            label: "色票配色",
+            palette: [
+              { id: "For text shadow", color: "aqua" },
+              {
+                id: "For text color, text shadow(active), line",
+                color: "#affcff",
+              },
+              {
+                id: "For text shadow(hover), text color(active)",
+                color: "#2f25fa",
+              },
+              {
+                id: "For reder layer of left area",
+                color: "rgba(8, 26, 107, 0.99)",
+              },
+              {
+                id: "For reder layer of page background",
+                color:
+                  "linear-gradient(90deg, rgb(28,28,37), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+              },
+              {
+                id: "For navigator background",
+                color:
+                  "linear-gradient(180deg, rgb(29,21,67), rgb(32,22,82), rgba(32,22,82), rgb(35,33,92), rgba(31,50,121,0.8))",
+              },
+            ],
+          },
+          {
+            label: "製作疑難",
+            list: [
+              {
+                text: "部分功能需要使用 JavaScript 才能實現",
+                solution: "透過自學與查閱資料自行摸索解決",
+                note: "過程中也發現了處理既有動態樣式的其他方法，部分邏輯改以 JavaScript 處理後，CSS 的撰寫量也得以有所減少",
+              },
+            ],
+          },
+          {
+            label: "版本歷程",
+            link: {
+              text: ["版本更新歷程", "DEMO"],
+              href: [
+                "https://github.com/unkn0321/2025WebPage2/commits/main/",
+                "https://unkn0321.github.io/2025WebPage2/",
+              ],
+            },
+          },
+          {
+            label: "素材使用",
+            links: [
+              {
+                text: "Intro Page Background",
+                href: "https://www.pexels.com/video/a-pastel-of-yellow-liquid-forms-different-patterns-3051357/",
+              },
+              {
+                text: "Works Page Background",
+                href: "https://www.pexels.com/video/abstract-video-4990242/",
+              },
+              {
+                text: "Contact Page Background",
+                href: "https://www.pexels.com/video/a-close-up-of-a-white-wave-pattern-4779866/",
+              },
+              {
+                text: "left Area Background",
+                href: "https://www.hcn.org/issues/54-9/climate-change-how-a-hidden-cave-can-help-scientists-understand-the-climate/",
               },
             ],
           },
