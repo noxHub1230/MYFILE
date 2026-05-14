@@ -49,7 +49,7 @@ function renderLangSwitcher(containerId) {
   toggle.className = "langDropdownToggle";
   toggle.setAttribute("data-bs-toggle", "dropdown");
   toggle.setAttribute("aria-expanded", "false");
-  toggle.innerHTML = `<i class="bi bi-globe2"></i>`;
+  toggle.innerHTML = `<i class="bi bi-translate"></i>`;
   dropdown.appendChild(toggle);
 
   // 下拉選單
