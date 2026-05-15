@@ -549,11 +549,6 @@ body {
     padding-right: 0;
   }
 
-  /* showcase 裁切，防止 visual-copy 文字撐開頁面寬度 */
-  .showcase {
-    overflow: hidden;
-  }
-
   /* visual-copy 行動版縮放 */
   .visual-copy span:nth-child(1) {
     top: 4%;
