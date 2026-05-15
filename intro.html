@@ -155,6 +155,24 @@
             if (idx === 0) imgEl.id = "selfBanner";
             imgSection.appendChild(imgEl);
 
+            // ── visual copy ──
+            if (
+              intro.bottomVisual &&
+              intro.bottomVisual.texts &&
+              idx >= showcaseImages.length - 2
+            ) {
+              const copyWrap = document.createElement("div");
+              copyWrap.className = "visual-copy";
+
+              intro.bottomVisual.texts.forEach((text) => {
+                const span = document.createElement("span");
+                span.textContent = text;
+                copyWrap.appendChild(span);
+              });
+
+              imgSection.appendChild(copyWrap);
+            }
+
             contentEl.appendChild(imgSection);
           }
         });
@@ -167,6 +185,7 @@
             "showcase " + (i % 2 === 0 ? "showcase--right" : "showcase--left");
 
           const imgEl = document.createElement("div");
+
           imgEl.className = "showcase-image";
           imgEl.style.backgroundImage = `url(${imgData.url})`;
           imgEl.style.aspectRatio = imgData.ratio;

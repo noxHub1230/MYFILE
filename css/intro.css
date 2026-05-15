@@ -494,3 +494,66 @@ body {
   cursor: default;
   transform: none !important;
 }
+.showcase {
+  position: relative;
+}
+.visual-copy {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 5;
+}
+
+.visual-copy span {
+  position: absolute;
+
+  color: rgba(220, 230, 255, 0.7);
+
+  font-family: "Noto Serif TC", serif;
+
+  letter-spacing: 0.35rem;
+
+  text-shadow: 0 0 12px rgba(180, 220, 255, 0.15);
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+
+  opacity: 0.85;
+}
+
+/* 末納刻希亞 */
+
+.visual-copy span:nth-child(1) {
+  top: -10%;
+  left: 8%;
+  font-size: 1.4rem;
+}
+
+/* 災燼的末裔 */
+
+.visual-copy span:nth-child(2) {
+  right: 6%;
+  top: 35%;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+/* 冥淵之龍 */
+
+.visual-copy span:nth-child(3) {
+  bottom: -6rem;
+  left: 32%;
+
+  transform: translateX(-50%);
+
+  font-size: 3.2rem;
+
+  letter-spacing: 0.6rem;
+
+  opacity: 0.6;
+}
