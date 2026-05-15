@@ -273,6 +273,7 @@ body {
    Showcase Images — interleaved, offset
    ═══════════════════════════════════════════════ */
 .showcase {
+  position: relative;
   width: 100%;
   display: flex;
   margin-bottom: 12vh;
@@ -334,6 +335,7 @@ body {
     transform: translateY(0%);
   }
 }
+
 /* ═══════════════════════════════════════════════
    Scroll-reveal animation system
    ═══════════════════════════════════════════════ */
@@ -412,55 +414,6 @@ body {
 }
 
 /* ═══════════════════════════════════════════════
-   RWD
-   ═══════════════════════════════════════════════ */
-@media screen and (max-width: 684px) {
-  .visual-copy span:nth-child(1) {
-    top: 4%; /* 改為正值，不超出上方 */
-    font-size: 1rem;
-  }
-  .visual-copy span:nth-child(2) {
-    font-size: 1.4rem;
-  }
-  .visual-copy span:nth-child(3) {
-    bottom: -2rem; /* 縮小超出範圍 */
-    font-size: 2rem;
-    letter-spacing: 0.3rem;
-    left: 50%; /* 置中更安全 */
-  }
-
-  /* 修正 3：showcase 加 overflow: hidden 防止子元素溢出 */
-  .showcase {
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-title {
-    letter-spacing: 0.15em;
-  }
-  .hero-deco-line.is-visible {
-    width: 100px;
-  }
-
-  .mainContainer {
-    padding: 4vh 1.2rem 10vh;
-  }
-
-  .content-section {
-    margin-bottom: 7vh;
-    padding: 0;
-  }
-  .section-body {
-    padding-left: 1rem;
-  }
-
-  .showcase--right,
-  .showcase--left {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-/* ═══════════════════════════════════════════════
    語言切換元件
    ═══════════════════════════════════════════════ */
 .langSwitcher {
@@ -514,37 +467,31 @@ body {
   cursor: default;
   transform: none !important;
 }
-.showcase {
-  position: relative;
-}
+
+/* ═══════════════════════════════════════════════
+   Visual Copy — 疊加在 showcase 上的裝飾文字
+   （必須放在 media query 之前，確保 RWD 能正確覆蓋）
+   ═══════════════════════════════════════════════ */
 .visual-copy {
   position: absolute;
   inset: 0;
-
   pointer-events: none;
   z-index: 5;
 }
 
 .visual-copy span {
   position: absolute;
-
   color: rgba(220, 230, 255, 0.7);
-
   font-family: "Noto Serif TC", serif;
-
   letter-spacing: 0.35rem;
-
   text-shadow: 0 0 12px rgba(180, 220, 255, 0.15);
-
   transition:
     transform 0.6s ease,
     opacity 0.6s ease;
-
   opacity: 0.85;
 }
 
 /* 末納刻希亞 */
-
 .visual-copy span:nth-child(1) {
   top: -10%;
   left: 8%;
@@ -552,7 +499,6 @@ body {
 }
 
 /* 災燼的末裔 */
-
 .visual-copy span:nth-child(2) {
   right: 6%;
   top: 35%;
@@ -564,16 +510,62 @@ body {
 }
 
 /* 冥淵之龍 */
-
 .visual-copy span:nth-child(3) {
   bottom: -6rem;
   left: 32%;
-
   transform: translateX(-50%);
-
   font-size: 3.2rem;
-
   letter-spacing: 0.6rem;
-
   opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════════
+   RWD
+   （必須放在最後，確保覆蓋上方所有規則）
+   ═══════════════════════════════════════════════ */
+@media screen and (max-width: 684px) {
+  .hero-title {
+    letter-spacing: 0.15em;
+  }
+  .hero-deco-line.is-visible {
+    width: 100px;
+  }
+
+  .mainContainer {
+    padding: 4vh 1.2rem 10vh;
+  }
+
+  .content-section {
+    margin-bottom: 7vh;
+    padding: 0;
+  }
+  .section-body {
+    padding-left: 1rem;
+  }
+
+  .showcase--right,
+  .showcase--left {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* showcase 裁切，防止 visual-copy 文字撐開頁面寬度 */
+  .showcase {
+    overflow: hidden;
+  }
+
+  /* visual-copy 行動版縮放 */
+  .visual-copy span:nth-child(1) {
+    top: 4%;
+    font-size: 1rem;
+  }
+  .visual-copy span:nth-child(2) {
+    font-size: 1.4rem;
+  }
+  .visual-copy span:nth-child(3) {
+    bottom: -2rem;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    left: 50%;
+  }
 }
