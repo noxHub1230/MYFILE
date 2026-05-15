@@ -273,3 +273,28 @@ body {
   cursor: default;
   transform: none !important;
 }
+@media screen and (max-width: 684px) {
+  .mainContainer {
+    padding: 20px 24px; /* 大幅縮小左右 padding */
+    border-radius: 60%; /* 縮小圓角，避免 overflow: hidden 裁切文字 */
+    /* 或是直接移除 overflow: hidden，改由 mainContainerBG 負責視覺效果 */
+  }
+
+  .titleArea h1 {
+    font-size: 3rem; /* 響應式字體大小 */
+  }
+
+  .titleArea h4 {
+    font-size: 1.3rem;
+  }
+
+  .navArea a {
+    font-size: 1.1em;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .langSwitcher {
+    margin-left: 4%;
+  }
+}
