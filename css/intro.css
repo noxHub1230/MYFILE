@@ -390,7 +390,7 @@ body {
 }
 
 /* 背景內容【圖層高度：-4】 */
-.BGvideo {
+.BGimage {
   position: fixed;
   height: 100%;
   width: 100%;

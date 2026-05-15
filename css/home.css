@@ -18,9 +18,12 @@
             }來設定動畫的內容
 */
 
-/*'Noto Serif TC', serif*/@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
-/*'Klee One', cursive*/@import url('https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Serif+TC:wght@200..900&display=swap');
-/*'Zen Maru Gothic', sans-serif*/@import url('https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Serif+TC:wght@200..900&family=Zen+Maru+Gothic&display=swap');
+/*'Noto Serif TC', serif*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
+/*'Klee One', cursive*/
+@import url("https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Serif+TC:wght@200..900&display=swap");
+/*'Zen Maru Gothic', sans-serif*/
+@import url("https://fonts.googleapis.com/css2?family=Klee+One&family=Noto+Serif+TC:wght@200..900&family=Zen+Maru+Gothic&display=swap");
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -29,15 +32,15 @@
     opacity: 1;
   }
 }
-@keyframes span{
+@keyframes span {
   0% {
     scale: 0;
   }
   100% {
-    scale:1;
+    scale: 1;
   }
 }
-@keyframes titleMove{
+@keyframes titleMove {
   0% {
     transform: translateY(40px);
   }
@@ -48,7 +51,7 @@
     transform: translateY(-3px);
   }
 }
-@keyframes  expand{
+@keyframes expand {
   0% {
     padding-left: 0%;
     padding-right: 0%;
@@ -63,7 +66,7 @@ body {
   min-height: auto;
   min-width: 260px;
 }
-.renderLayer{
+.renderLayer {
   position: absolute;
   z-index: 0;
   width: 100%;
@@ -72,11 +75,18 @@ body {
   left: 0;
   bottom: 0;
   overflow: hidden;
-  background:linear-gradient(180deg,rgba(32, 22, 82, 0.9),rgba(32, 22, 82, 0.8),rgba(32, 22, 82, 0.8),rgba(82, 119, 149, 0.7),rgb(49, 163, 194,0.5));
-  mix-blend-mode:color-burn;
-  filter:brightness(0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(32, 22, 82, 0.9),
+    rgba(32, 22, 82, 0.8),
+    rgba(32, 22, 82, 0.8),
+    rgba(82, 119, 149, 0.7),
+    rgb(49, 163, 194, 0.5)
+  );
+  mix-blend-mode: color-burn;
+  filter: brightness(0.5);
 }
-.videoContainer{
+.videoContainer {
   position: absolute;
   z-index: -1;
   width: 100%;
@@ -89,8 +99,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-.BGvideo{
-  position:absolute;
+.BGimage {
+  position: absolute;
   height: 100%;
   width: 100%;
   z-index: -2;
@@ -109,17 +119,16 @@ body {
   align-self: center;
   color: #affcff;
 }
-.mainContainerBG{
+.mainContainerBG {
   position: absolute;
   width: 90%;
   height: 40%;
   z-index: 5;
-  background-color: rgba(7, 7, 7,0.85);
-  filter: blur(50px)
-  drop-shadow(0 0 10px rgba(9, 1, 254, 0.5));
+  background-color: rgba(7, 7, 7, 0.85);
+  filter: blur(50px) drop-shadow(0 0 10px rgba(9, 1, 254, 0.5));
   overflow: hidden;
 }
-.titleArea{
+.titleArea {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,28 +139,27 @@ body {
   animation: fadeIn 1s linear 0.5s backwards;
   animation-play-state: paused;
 }
-.titleArea h1{
+.titleArea h1 {
   font-size: 4em;
-  font-family: 'Noto Serif TC', serif;
+  font-family: "Noto Serif TC", serif;
   text-align: center;
   margin: 0 0 0 0;
-  text-shadow:
-  0 0 5px aqua;
+  text-shadow: 0 0 5px aqua;
   animation: titleMove 1s linear 0.5s backwards;
   animation-play-state: paused;
 }
-.titleArea h4{
+.titleArea h4 {
   font-size: 1.5em;
   color: rgba(0, 255, 255, 0.604);
   filter: blur(1px);
-  font-family: 'Klee One', cursive;
+  font-family: "Klee One", cursive;
   text-align: center;
   margin: 0 0 0 0;
   animation: fadeIn 1s linear 1s backwards;
   animation-play-state: paused;
 }
-.line{
-  border-style:solid ;
+.line {
+  border-style: solid;
   height: 0.5%;
   color: #affcff;
   filter: blur(0.75px);
@@ -159,60 +167,60 @@ body {
   animation: span 1s ease-out backwards;
   animation-play-state: paused;
 }
-.navArea{
+.navArea {
   display: flex;
   flex-direction: row;
   row-gap: 10px;
-  justify-content:center;
+  justify-content: center;
   width: auto;
   height: auto;
   padding: 20px;
   animation: fadeIn 1s linear 1s backwards;
   animation-play-state: paused;
 }
-.navArea a{
+.navArea a {
   text-decoration: none;
   color: #affcff;
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 700;
   font-size: 1.35em;
   padding-left: 2%;
   padding-right: 2%;
   border-radius: 10px;
-  text-shadow:
-  0 0 5px aqua;
-  transition: text-shadow 0.25s linear,
-              transform 0.25s linear;
+  text-shadow: 0 0 5px aqua;
+  transition:
+    text-shadow 0.25s linear,
+    transform 0.25s linear;
   animation: expand 0.25s linear 1s backwards;
   animation-play-state: paused;
 }
-.navArea a:hover{
-  text-shadow: 
-  0 0 2px #affcff,
-  5px 5px 10px #2f25fa,
-  5px 5px 10px #2f25fa,
-  -5px -5px 10px #2f25fa,
-  -5px -5px 10px #2f25fa,
-  -5px 5px 10px #2f25fa,
-  -5px 5px 10px #2f25fa,
-  5px -5px 10px #2f25fa,
-  5px -5px 10px #2f25fa;
+.navArea a:hover {
+  text-shadow:
+    0 0 2px #affcff,
+    5px 5px 10px #2f25fa,
+    5px 5px 10px #2f25fa,
+    -5px -5px 10px #2f25fa,
+    -5px -5px 10px #2f25fa,
+    -5px 5px 10px #2f25fa,
+    -5px 5px 10px #2f25fa,
+    5px -5px 10px #2f25fa,
+    5px -5px 10px #2f25fa;
   mix-blend-mode: overlay;
   transform: translateY(-5px);
 }
-.navArea a:active{
+.navArea a:active {
   color: #2f25fa;
-  text-shadow: 
-  0 0 2px #2f25fa,
-  5px 5px 10px #affcff,
-  -5px -5px 10px #affcff,
-  -5px 5px 10px #affcff,
-  5px -5px 10px #affcff;
+  text-shadow:
+    0 0 2px #2f25fa,
+    5px 5px 10px #affcff,
+    -5px -5px 10px #affcff,
+    -5px 5px 10px #affcff,
+    5px -5px 10px #affcff;
   transform: translateY(1px);
 }
 
 .animation-ready {
-    animation-play-state: running !important;
+  animation-play-state: running !important;
 }
 /* ── 語言切換元件 ── */
 .langSwitcher {
@@ -224,7 +232,7 @@ body {
 .langSep {
   color: #affcff;
   opacity: 0.5;
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-size: 1em;
   user-select: none;
 }
@@ -233,13 +241,16 @@ body {
   border: none;
   cursor: pointer;
   color: #affcff;
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: "Zen Maru Gothic", sans-serif;
   font-weight: 700;
   font-size: 1.05em;
   padding: 2px 6px;
   border-radius: 6px;
   text-shadow: 0 0 5px aqua;
-  transition: text-shadow 0.25s linear, transform 0.25s linear, opacity 0.25s linear;
+  transition:
+    text-shadow 0.25s linear,
+    transform 0.25s linear,
+    opacity 0.25s linear;
   opacity: 0.55;
   letter-spacing: 0.03em;
 }
@@ -256,7 +267,9 @@ body {
 .langBtn--active {
   opacity: 1;
   color: #affcff;
-  text-shadow: 0 0 8px aqua, 0 0 3px #affcff;
+  text-shadow:
+    0 0 8px aqua,
+    0 0 3px #affcff;
   cursor: default;
   transform: none !important;
 }

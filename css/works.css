@@ -196,7 +196,7 @@ body {
   );
   mix-blend-mode: hue;
 }
-.BGvideo {
+.BGimage {
   position: fixed;
   top: 0;
   left: 0;
@@ -560,7 +560,7 @@ body {
   .projectCard__inner {
     padding: var(--space-sm) var(--space-sm) var(--space-md) var(--space-sm);
   }
-  .BGvideo {
+  .BGimage {
     transform: scaleY(1.66);
   }
   .BGcontainer,
