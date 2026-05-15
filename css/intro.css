@@ -202,6 +202,7 @@ body {
    Content Section — scroll-reveal blocks
    ═══════════════════════════════════════════════ */
 .content-section {
+  position: relative;
   margin-bottom: 10vh;
   padding: 0 1rem;
 }
@@ -414,6 +415,25 @@ body {
    RWD
    ═══════════════════════════════════════════════ */
 @media screen and (max-width: 684px) {
+  .visual-copy span:nth-child(1) {
+    top: 4%; /* 改為正值，不超出上方 */
+    font-size: 1rem;
+  }
+  .visual-copy span:nth-child(2) {
+    font-size: 1.4rem;
+  }
+  .visual-copy span:nth-child(3) {
+    bottom: -2rem; /* 縮小超出範圍 */
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    left: 50%; /* 置中更安全 */
+  }
+
+  /* 修正 3：showcase 加 overflow: hidden 防止子元素溢出 */
+  .showcase {
+    position: relative;
+    overflow: hidden;
+  }
   .hero-title {
     letter-spacing: 0.15em;
   }
