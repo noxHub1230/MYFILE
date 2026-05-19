@@ -283,8 +283,8 @@ body {
   border-radius: var(--radius-card);
   overflow: hidden;
   background: rgba(8, 26, 107, 0.45);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
@@ -318,7 +318,7 @@ body {
   background: rgba(8, 26, 107, 0.25);
 }
 .projectCard__header:hover img {
-  scale: 150%;
+  transform: scale(1.5);
   filter: drop-shadow(0 0 1px aqua);
   transition: 0.5s;
 }
@@ -345,7 +345,7 @@ body {
 }
 .arrowIcon {
   display: block;
-  scale: 200%;
+  transform: scale(2);
 }
 
 .projectCard__inner {
