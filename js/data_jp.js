@@ -412,8 +412,8 @@ Toyhouse特有の制約がある環境下でも、
           {
             label: "メールアドレス",
             value: `
-            （第一アドレス）35fghu@gmail.com
-              （第二アドレス）nokinok0321@gmail.com`,
+            （国内連絡用アドレス）35fghu@gmail.com
+              （海外連絡用アドレス）nokinok0321@gmail.com`,
           },
         ],
       },
