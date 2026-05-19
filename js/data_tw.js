@@ -413,8 +413,8 @@ const DATA_TW = {
           {
             label: "電子郵件",
             value: `
-            （主要信箱）35fghu@gmail.com
-            （次要信箱）nokinok0321@gmail.com`,
+            （國內聯絡用）35fghu@gmail.com
+            （國外聯絡用）nokinok0321@gmail.com`,
           },
         ],
       },
